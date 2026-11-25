@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opensend-u1"
+version = "0.1.0"
+description = "Open-source OrcaSlicer plugin: map filaments to Snapmaker U1 toolheads before printing."
+readme = "README.md"
+# OrcaSlicer embeds CPython 3.12.
+requires-python = ">=3.12"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "Frank" }]
+# Runtime dependencies are installed by OrcaSlicer via pip on first load. Keep this list short.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "build>=1.2"]
+
+[project.urls]
+Source = "https://github.com/plexi32/opensend-u1"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opensend_u1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
